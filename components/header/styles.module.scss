@@ -1,0 +1,57 @@
+@import 'styles/variables';
+
+
+.header {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+
+
+    .heading {
+        width: fit-content;
+        z-index: 5;
+        height: fit-content;
+        position: absolute;
+        display: flex;
+        align-items: center;
+
+        h1 {
+            font-size: 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            span {
+                font-size: 3rem;
+                width: fit-content;
+                position: relative;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    width: 60px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 105%;
+                    border-top: 1px solid #ccc;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: 60px;
+                    top: 50%;
+                    left: 105%;
+                    transform: translateY(-50%);
+                    border-top: 1px solid #ccc;
+                }
+            }
+        }
+    }
+
+}

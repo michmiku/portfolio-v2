@@ -1,0 +1,60 @@
+@import 'styles/variables';
+
+
+.header {
+    width: 100vw;
+    min-height: calc(100vh - $navbarHeight);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+
+
+    .heading {
+        width: fit-content;
+        z-index: 1;
+        height: fit-content;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        transform: translateY(-$navbarHeight/2);
+
+        h1 {
+            font-size: 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            span {
+                font-size: 3rem;
+                width: fit-content;
+                position: relative;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    width: 60px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 105%;
+                    border-top: 1px solid #ccc;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: 60px;
+                    top: 50%;
+                    left: 105%;
+                    transform: translateY(-50%);
+                    border-top: 1px solid #ccc;
+                }
+            }
+        }
+    }
+
+}

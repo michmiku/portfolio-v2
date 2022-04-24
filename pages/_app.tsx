@@ -1,8 +1,18 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-
+import "styles/globals.scss";
+import type { AppProps } from "next/app";
+import globalStateMachine from "machines/globalStateMachine";
+import { GlobalStateContext } from "machines/globalStateContext";
+import { useInterpret } from "@xstate/react";
+import Layout from "components/layout";
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  const globalStateService = useInterpret(globalStateMachine);
+  return (
+    <GlobalStateContext.Provider value={{ globalStateService }}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </GlobalStateContext.Provider>
+  );
 }
 
-export default MyApp
+export default MyApp;
