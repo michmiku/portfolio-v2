@@ -13,18 +13,25 @@ const Layout = ({ children }: { children: JSX.Element[] | JSX.Element }) => {
 
   return (
     <div className={styles.layout}>
-      <nav className="theme-background">
-        <button
-          className={cx(
-            `text-button text-color`,
-            css`
-              padding: 0;
-            `
-          )}
-          onClick={() => send("goToHeader")}
-        >
-          <span className={`${styles.logo} text-color`}>Michał Mikulski</span>
-        </button>
+      <nav
+        className={cx(
+          `${state?.value !== "header" ? "theme-background" : ""}`,
+          css``
+        )}
+      >
+        <div>
+          <button
+            className={cx(
+              `text-button text-color`,
+              css`
+                padding: 0;
+              `
+            )}
+            onClick={() => send("goToHeader")}
+          >
+            <span className={`${styles.logo} text-color`}>Michał Mikulski</span>
+          </button>
+        </div>
       </nav>
       <main>
         <div>

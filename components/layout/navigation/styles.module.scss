@@ -1,3 +1,6 @@
+@import 'styles/variables';
+
+
 .navigationButton {
     position: fixed;
     bottom: 20px;
@@ -8,4 +11,38 @@
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+.navigationSidebar {
+    @media (max-width: $breakpointMobile) {
+        display: none;
+    }
+
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+    align-items: flex-start;
+
+
+
+
+    .active {
+        color: $color;
+        border-color: $color;
+    }
+
+    button {
+
+        height: 42px;
+        font-size: 14px;
+        transition: color .2s ease;
+        transition: border-color .2s ease;
+        color: $color-darker;
+        border-left: 1px solid $color-darker;
+
+        &:hover {}
+    }
 }

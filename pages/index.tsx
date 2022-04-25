@@ -80,6 +80,7 @@ const Home: NextPage = () => {
     return () => window.removeEventListener("wheel", onScroll);
   }, [onScroll]);
   useEffect(() => {
+    console.log("navigation");
     if (state.value == "header") {
       let top = header.current?.offsetTop;
       window.scrollTo({

@@ -2,65 +2,34 @@ import globalStateModel from "./globalStateModel";
 import { ActorRefFrom } from "xstate";
 
 const globalStateMachine =
-  /** @xstate-layout N4IgpgJg5mDOIC5QFsCGBLAdgOgBZlQjACcBiKAewBUKBlAa3QBsn4kQAHC2dAF3QqZEoAB6IAtAGYArACZsMgGwBOZQAYALLIAca6QHYANCACeE2fuXZZsudLXLtijfv3SAvu+Nos2WIxZYcmoKAAkCImJhTm4+ASF2MQRxG2xtSW0ddI1JSzV9XOMzZIztbABGJWlHbX1K2UlPbwwcf2ZWYJoAQQAjCgBXXgBZMGiuHn5BaKSUqxzHaUU9cpdFQtMJTOtq5Vt9Bxdy-UUmkB8cVD7Bkc66ANYx2MmE0QlJGWwNDTVJRWrFVwZcpFTbyWyqNTaZSLSRqNRHU7nbCXAbDMC3AAKFGIvAAZhQmAJHhN4tMJNUNGkNFDtEdaa5NCCEFsXLJqcp9DlZIpsoiWsirmjbuFCCRiXEpolycpythFq57DzSjKmVJtGVKotqtJYTzyso+b4uDj8YSKLdeqiRuLnmTkrI5pJHIpudDyotlO9VeUytodoolpZ7Lp9IacMa8QSBLcAMKCXioADGvBtpKl9ukstqBnKAKhalsPyZlX0cscsnh+v2uTD2AjpujlBoIsiqclrwQ9WwHMz9kq7o0uyMGxKkllPrHOaW5QOjS8Z35ifjSd4mOxkbNbZeICSE8+Nh5Ll0Dh+siZ3NluwDcOdTosofnSKXmATyeFETF7HGEu3M0zpa0Csxz9WQVh9VUHUUbBLABb41i+XRtE8edMAoIg2BQfl8FFKIvyeNMOykF1uwDXJ9QaGV9G0VUnUpNZFmcB1ajURRylrNpAi3O1xC7L4VkkB1YU5HUIL9aDbDZfZQI0P4ZNrFFrlGPCSXbHcJCWNQFGhWoxzHGTlEUVV1WgnZQM5L5qlcWt6yjCguPTH1NIaTNdm0DRpEyZymTcbt9DZT19kyXR3lrZ9XxTZSf24yQtDSBojh+SxVADYdilsaR92vQdM2+Fww3swiXUpJ0PIKft9MMkdxBk0t6OvAzfnKB1kPcIA */
+  /** @xstate-layout N4IgpgJg5mDOIC5QFsCGBLAdgYigewBU8AJMVCMAJ0VAAc9Z0AXdPTGkAD0QFoA2AEwAGAHQBOAOwC+EmQBYBEoWIAcAGhABPXhJUi5QiQoCsQgMwTjZvnwC+tjWiy5CeAIIAjPAFcmAWTAOekYWNg5uBB5rYxFlMxUVIQBGMzE5OQkxYw1tBCSRPiSBBLlTYzl4xQt7RwwcfCIAZQBrdAAbNvgkEGDmVnZuiJ4BJL4RFT45Gwni42MZMxzeIr0+SXm5IrMzJIlrGpAnetcABTxKJgAzPDbWIIY+sMHlmNG+FTlJCT2xcxUBJZ5AorD5lCr-PYSA5HFxEADCbCYqAAxkx7iF+uFEEkhDEhHwhOZZHwzPMkklATxyaIzAIBDsJuU5roVPYHCBMHgKF0UHURAALMgUajdXqhAagIaCfJJCYqIz-YyKXaA97A+JKpIKARiMQ2aF82CtDo8noPcVYyJJSQiUYqWVCFTGLX0j6q1YpJ0jbW6tYGrAiVBeXwBdGPCVcXjWCQiWlCCqZYoWDJ8d3qr0unV6sT+zAiegXa63PBhi3PSLbfSSBICYwqMTxQwSNOFDXeum+uzso4iZGIlFo0XmzHlnFmWNScrSGSFCaprSINWtjM+7O50sjyW8SavOUK2vK5sLyIjcdrSyfKTxiy7Nm2IA */
   globalStateModel.createMachine({
     context: globalStateModel.initialContext,
     tsTypes: {} as import("./globalStateMachine.typegen").Typegen0,
+    on: {
+      goToHeader: {
+        target: ".header",
+      },
+      goToAboutMe: {
+        target: ".aboutMe",
+      },
+      goToSkills: {
+        target: ".skills",
+      },
+      goToPortfolio: {
+        target: ".portfolio",
+      },
+      goToContact: {
+        target: ".contact",
+      },
+    },
     initial: "header",
     states: {
-      header: {
-        on: {
-          goToSkills: {
-            target: "skills",
-          },
-        },
-      },
-      skills: {
-        on: {
-          goToHeader: {
-            target: "header",
-          },
-          goToAboutMe: {
-            target: "aboutMe",
-          },
-        },
-      },
-      aboutMe: {
-        on: {
-          goToSkills: {
-            target: "skills",
-          },
-          goToPortfolio: {
-            target: "portfolio",
-          },
-          goToHeader: {
-            target: "header",
-          },
-        },
-      },
-      portfolio: {
-        on: {
-          goToAboutMe: {
-            target: "aboutMe",
-          },
-          goToContact: {
-            target: "contact",
-          },
-          goToHeader: {
-            target: "header",
-          },
-        },
-      },
-      contact: {
-        on: {
-          goToPortfolio: {
-            target: "portfolio",
-          },
-          goToHeader: {
-            target: "header",
-          },
-        },
-      },
+      header: {},
+      skills: {},
+      aboutMe: {},
+      portfolio: {},
+      contact: {},
     },
     id: "main",
   });

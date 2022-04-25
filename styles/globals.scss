@@ -41,6 +41,7 @@ a {
 }
 
 * {
+  font-family: Roboto;
   box-sizing: border-box;
   font-size: 0.5em;
   transition: font-size .1s ease;
@@ -63,7 +64,7 @@ a {
 }
 
 .theme-background {
-  background: $theme;
+  background: $theme !important;
 }
 
 .background {
@@ -71,11 +72,12 @@ a {
 }
 
 .text-button {
-  padding: 0.7rem 2rem;
-  font-size: 1.8rem;
+  font-size: 16px;
+  padding: 8px 14px;
   background: transparent;
   border: none;
   cursor: pointer;
+  color: $color;
 }
 
 .section {
@@ -87,4 +89,13 @@ a {
   justify-content: center;
   z-index: 2;
   color: $color
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.size-transform {
+  transform: scale(1.05);
+  font-weight: 600 !important;
 }

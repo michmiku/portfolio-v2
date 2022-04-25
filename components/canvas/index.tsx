@@ -23,7 +23,7 @@ const ThreeScene = () => {
       <CameraController />
       {/* <primitive object={new AxesHelper(100)} /> */}
       <Plane />
-      <SpaceDust count={1000} />
+      <SpaceDust count={500} />
       <spotLight position={[0, 110, 900]} angle={Math.PI / 5} penumbra={1} />
       {/* <directionalLight position={[0, -1, 4]} />
       <directionalLight position={[0, 0, -1]} /> */}
