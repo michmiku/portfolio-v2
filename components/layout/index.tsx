@@ -3,11 +3,14 @@ import { useContext } from "react";
 import styles from "./styles.module.scss";
 import { GlobalStateContext } from "machines/globalStateContext";
 import { useActor } from "@xstate/react";
-import Button from "components/navigation/Button";
+import Button from "components/layout/navigation/Button";
 import { css, cx } from "@emotion/css";
+import Sidebar from "./navigation/Sidebar";
+
 const Layout = ({ children }: { children: JSX.Element[] | JSX.Element }) => {
   const globalState = useContext(GlobalStateContext);
   const [state, send] = useActor(globalState.globalStateService);
+
   return (
     <div className={styles.layout}>
       <nav className="theme-background">
@@ -26,11 +29,8 @@ const Layout = ({ children }: { children: JSX.Element[] | JSX.Element }) => {
       <main>
         <div>
           {children}
-          <Button
-            nextEvents={state.nextEvents}
-            send={send}
-            currentState={state.value}
-          />
+          <Button send={send} currentState={state.value} />
+          <Sidebar send={send} currentState={state.value} />
         </div>
       </main>
     </div>

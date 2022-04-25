@@ -1,7 +1,11 @@
-import { RefObject } from "react";
+import { Component } from "utils/types/types";
 
-const AboutMe = () => {
-  return <section className="section">About me</section>;
+const AboutMe = ({ elementRef }: Component) => {
+  return (
+    <section className="section" ref={elementRef}>
+      About me
+    </section>
+  );
 };
 
 export default AboutMe;

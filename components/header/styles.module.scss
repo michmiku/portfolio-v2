@@ -2,21 +2,18 @@
 
 
 .header {
-    min-height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-
 
     .heading {
         width: fit-content;
         z-index: 5;
         height: fit-content;
-        position: absolute;
         display: flex;
         align-items: center;
+        position: relative;
+
+        @media (max-width: $breakpointMobile) {
+            bottom: 30px;
+        }
 
         h1 {
             font-size: 5rem;

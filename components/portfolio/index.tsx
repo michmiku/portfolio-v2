@@ -1,7 +1,11 @@
-import { RefObject } from "react";
+import { Component } from "utils/types/types";
 
-const Portfolio = () => {
-  return <section className="section">Portfolio</section>;
+const Portfolio = ({ elementRef }: Component) => {
+  return (
+    <section className="section" ref={elementRef}>
+      Portfolio
+    </section>
+  );
 };
 
 export default Portfolio;
